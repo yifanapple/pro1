@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+template<class item>
+void Bubbleup(item values[], int startnumber, int endnumber)
+{
+	for (int index = endnumber; index > startnumber; index--)
+	{
+		if (values[index] < values[index - 1])
+			swap(values[index], values[index - 1]);
+	}
+}
+
+template<class item>
+void Bubblesort(item values[], int numvalues)
+{
+	int current = 0;
+	while (current < numvalues - 1)
+	{
+		Bubbleup(values, current, numvalues - 1);
+		current++;
+	}
+}
+
+int main()
+{
+	int val[7] = { 9, 23, 4, 72, 6, 35, 58 };
+	Bubblesort(val, 7);
+
+	cout << "After using the Bubble sort, the sequence becomes: " << endl;
+
+	for (int i = 0; i < 7; i++)
+	{
+		cout << "     " << val[i] << endl;
+	}
+}
